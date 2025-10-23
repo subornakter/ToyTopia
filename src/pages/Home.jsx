@@ -7,7 +7,7 @@ const Home = () => {
       const data = useLoaderData();
         const featuredProducts = data.slice(0, 6)
     return (
-        <div>
+        <div className=''>
          <Banner></Banner>
         
            <div className='flex  flex-col items-center mt-10'>
@@ -20,7 +20,7 @@ const Home = () => {
           ))}
         </div>
           <div className='flex justify-center items-center mb-5'>
-              <Link className='btn text-white bg-gradient-to-r from-[#632ee3] to-[#9f62f2]' to='/shop'>
+              <Link className='btn text-white bg-gradient-to-r from-[#1096B5] to-[#5ad0e8]' to='/shop'>
         Show all
         </Link>
         </div>

@@ -4,8 +4,9 @@ import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 // import About from "../pages/About";
 // import Profile from "../pages/Profile";
-// import Signup from "../pages/Signup";
-// import Signin from "../pages/Signin"
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin"
+import ToyDetails from "../pages/ToyDetails";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,14 +26,19 @@ export const router = createBrowserRouter([
         //     path:"/profile",
         //     element:<Profile/>
         // },
-        // {
-        //     path: "/signup",
-        //     element:<Signup/>
-        // },
-        // {
-        //     path:"/signin",
-        //     element:<Signin/>
-        // }
+        {
+            path: "/signup",
+            element:<Signup/>
+        },
+        {
+            path:"/signin",
+            element:<Signin/>
+        },
+         {
+        path: '/toyDetails/:toyId',
+        element: <ToyDetails />,
+           loader: () => fetch("/Data.json"),
+      },
 
     ]
   },

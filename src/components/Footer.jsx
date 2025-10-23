@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-pink-600 via-pink-700 to-pink-900 text-gray-200 px-8 py-12 mt-10">
+    <footer className="bg-gradient-to-b from-gray-600 via-gray-800 to-gray-900 text-gray-200 px-8 py-12 mt-10">
       <div className="grid md:grid-cols-5 gap-8">
         
         {/* About Section */}
@@ -77,7 +77,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="text-left md:text-center text-white text-sm border-t border-pink-400 pt-4 mt-10">
+      <div className="text-left md:text-center text-white text-sm border-t border-[#1096B5] pt-4 mt-10">
         © 2025 ToyTopia. <br className="block md:hidden" /> Bringing Smiles, One Toy at a Time!
       </div>
     </footer>

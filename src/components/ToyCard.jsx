@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaRegHeart } from "react-icons/fa";
 import ratings  from '../assets/icon-ratings.png'
+import { Link } from 'react-router';
 const ToyCard = ({toy}) => {
-  const { toyName, price, rating, pictureURL,availableQuantity, subCategory } = toy;
+  const { toyName, price, rating, toyId,pictureURL,availableQuantity, subCategory } = toy;
     return (
         <div>
                  <div className="card bg-base-100  shadow-sm hover:scale-105 transition ease-in-out">
@@ -10,7 +11,7 @@ const ToyCard = ({toy}) => {
             <h1 className='text-2xl font-bold'>{toyName}</h1>
                <FaRegHeart size={20} className="text-pink-500 mr-2" />
             </div>          
-  <figure className='h-60 overflow-hidden'>
+  <figure className='h-65 overflow-hidden'>
     <img className='w-full object-cover'
       src={pictureURL}
       alt="Shoes" />
@@ -28,7 +29,7 @@ const ToyCard = ({toy}) => {
 
     </div>
     <div className="card-actions justify-center mt-4">
-        <button className='btn bg-[#d72050] text-xl text-white'>View Details</button>
+      <Link to={`/toyDetails/${toyId}`}><button className='btn bg-[#d72050] text-xl text-white'>View Details</button></Link>
     </div>
     </div>
 </div>

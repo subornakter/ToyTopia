@@ -4,10 +4,27 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
+import balloon from '../assets/Balloon.png'
 const ToySlider = () => {
   return (
-    <div className="w-full max-w-5xl mx-auto mt-10">
+   <div>
+   <div className=" bg-[#e3f8fc] w-screen mx-auto h-100 rounded-lg">
+    <div className="flex justify-around items-center px-10 pt-5">
+      <div>
+       <img className="w-full h-20" src="https://i.ibb.co.com/tMLyc3kg/Kids.png" alt="" />
+        <h1 className="text-[#1096B5] mt-5 ml-3 text-4xl font-bold">Play, learn, & grow!
+</h1>
+<p className="ml-3 text-gray-500">Crafting smiles with every toy, made for learning, fun, and growth</p>
+ <button className="mt-5 font-semibold ml-3 bg-yellow-300 rounded-2xl p-2">Shop Now</button>
+
+      </div>
+      <div>
+         <img className="w-full h-80" src={balloon} alt="" />
+      </div>
+    </div>
+   </div>
+
+    <div className="w-full max-w-7xl mx-auto mt-10">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
@@ -43,6 +60,9 @@ const ToySlider = () => {
         </SwiperSlide>
       </Swiper>
     </div>
+
+
+   </div>
   );
 };
 
