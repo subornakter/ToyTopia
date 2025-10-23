@@ -7,10 +7,14 @@ import Shop from "../pages/Shop";
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin"
 import ToyDetails from "../pages/ToyDetails";
+import MyProfile from "../pages/MyProfile";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts/>,
+     errorElement: <ErrorPage />,
     children: [
         {
             index: true,
@@ -22,10 +26,14 @@ export const router = createBrowserRouter([
             element:<Shop/>,
                loader: () => fetch("/Data.json"),
         },
-        // {
-        //     path:"/profile",
-        //     element:<Profile/>
-        // },
+        {
+            path:"/profile",
+            element:(
+      <PrivateRoute>
+        <MyProfile />
+      </PrivateRoute>
+    ),
+        },
         {
             path: "/signup",
             element:<Signup/>
@@ -36,7 +44,7 @@ export const router = createBrowserRouter([
         },
          {
         path: '/toyDetails/:toyId',
-        element: <ToyDetails />,
+        element: (<PrivateRoute><ToyDetails /></PrivateRoute>),
            loader: () => fetch("/Data.json"),
       },
 
