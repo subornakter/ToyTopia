@@ -33,5 +33,5 @@ Toytopia is an interactive platform for buying educational toys, puzzles, and ga
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/toytopia.git
+   git clone https://github.com/programming-hero-web-course2/b12-a9-firesheild-subornakter.git
 
