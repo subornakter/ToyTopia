@@ -190,5 +190,29 @@
     "description": "Introduce your child to the joy of music with this 37-key mini keyboard. It includes demo songs, recording features, and adjustable volume settings. The piano enhances auditory development, coordination, and rhythm recognition in young learners.",
     "pictureURL": "https://i.ibb.co.com/xKSJ5fb8/t19.jpg",
     "subCategory": "Musical Toys"
+  },
+    {
+    "toyId": 17,
+    "toyName": "Magic Science Kit",
+    "sellerName": "FunLab Toys",
+    "sellerEmail": "support@funlab.com",
+    "price": 38.99,
+    "rating": 4.8,
+    "availableQuantity": 70,
+    "description": "A science kit full of magical experiments that teach kids basic chemistry and physics principles in a fun and safe way. Includes all necessary materials and a detailed instruction manual for guided learning.",
+    "pictureURL": "https://i.postimg.cc/5ydjgSJb/t24.jpg",
+    "subCategory": "STEM Toys"
+  },
+  {
+    "toyId": 18,
+    "toyName": "Glow in the Dark Puzzle",
+    "sellerName": "Brainy Toys",
+    "sellerEmail": "info@brainytoys.com",
+    "price": 21.99,
+    "rating": 4.7,
+    "availableQuantity": 110,
+    "description": "A challenging puzzle that glows in the dark, perfect for children and adults. Helps improve problem-solving skills, focus, and hand-eye coordination while adding a unique visual experience.",
+    "pictureURL": "https://i.postimg.cc/PxGtnfRR/image-11.png",
+    "subCategory": "Puzzles & Games"
   }
 ]

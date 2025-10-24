@@ -5,7 +5,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import balloon from '../assets/Balloon.png'
-const ToySlider = () => {
+import { FaArrowRight } from "react-icons/fa";
+
+import ToyCollections from "./ToyCollections.jsx";
+const Banner = () => {
   return (
    <div>
    <div className=" bg-[#e3f8fc] w-screen mx-auto h-100 rounded-lg">
@@ -14,8 +17,8 @@ const ToySlider = () => {
        <img className="w-full h-20" src="https://i.ibb.co.com/tMLyc3kg/Kids.png" alt="" />
         <h1 className="text-[#1096B5] mt-5 ml-3 text-4xl font-bold">Play, learn, & grow!
 </h1>
-<p className="ml-3 text-gray-500">Crafting smiles with every toy, made for learning, fun, and growth</p>
- <button className="mt-5 font-semibold ml-3 bg-yellow-300 rounded-2xl p-2">Shop Now</button>
+<p className="ml-3 mt-2 text-gray-500">Buy all kinds of intellectual games, toys, puzzles in our store and <br /> give your child the pleasure of love & entertainment.</p>
+ <button className="mt-5 font-semibold ml-3 flex gap-1 items-center bg-yellow-300 rounded-2xl p-2">Shop Now<FaArrowRight /></button>
 
       </div>
       <div>
@@ -23,7 +26,7 @@ const ToySlider = () => {
       </div>
     </div>
    </div>
-
+    
     <div className="w-full max-w-7xl mx-auto mt-10">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -61,9 +64,9 @@ const ToySlider = () => {
       </Swiper>
     </div>
 
-
+   <ToyCollections></ToyCollections>
    </div>
   );
 };
 
-export default ToySlider;
+export default Banner;

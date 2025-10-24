@@ -11,6 +11,7 @@ import MyProfile from "../pages/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import ForgetPassword from "../pages/ForgetPassword";
+import Store from "../pages/Store";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,15 @@ export const router = createBrowserRouter([
         {
             path:"/signin",
             element:<Signin/>
+        },
+        {
+            path:"/store",
+            element:(
+      <PrivateRoute>
+        <Store />
+      </PrivateRoute>
+            )
+        
         },
          {
         path: '/toyDetails/:toyId',

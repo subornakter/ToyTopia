@@ -32,6 +32,7 @@ const Navbar = () => {
         <ul className="flex items-center gap-4">
           <li><MyLink to="/">Home</MyLink></li>
           <li><MyLink to="/shop">Shop</MyLink></li>
+          <li><MyLink to="/store">Store</MyLink></li>
           <li><MyLink to="/profile">MyProfile</MyLink></li>
         </ul>
 
