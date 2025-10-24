@@ -36,12 +36,12 @@ const ToyDetails = () => {
     let updatedToys;
 
     if (existing) {
-      // Increase quantity if toy already exists
+    
       updatedToys = storedToys.map((t) =>
         t.id === toyId ? { ...t, quantity: t.quantity + 1 } : t
       );
     } else {
-      // Add new toy
+
       const newToy = {
         id: toyId,
         name: toyName,

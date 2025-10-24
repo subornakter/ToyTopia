@@ -23,7 +23,7 @@ const Signin = () => {
 
   const emailRef = useRef(null);
 
-  // Safe navigation after login
+ 
   useEffect(() => {
     if (user) {
       navigate(from, { replace: true });

@@ -60,11 +60,10 @@ const Signup = () => {
       return;
     }
 
-    // 1st step : Create user
-    // createUserWithEmailAndPassword(auth, email, password);
+    
     createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        // 2nd step: Update profile
+     
         updateProfileFunc(displayName, photoURL)
           .then(() => {
             console.log(res);
