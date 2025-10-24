@@ -23,6 +23,7 @@ const Shop = () => {
 
     return (
        <div className='max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-6 md:py-10'>
+        <title>Toytopia - Shop</title>
       <div className='flex flex-col justify-center items-center mb-8'>
         <h1 className='text-3xl font-bold'>Our All Toys Collection</h1>
         <p className='text-gray-500 text-center'>Explore All Toys on the Shop developed by ToyTopia. We code for Millions.</p>

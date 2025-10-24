@@ -21,6 +21,7 @@ const Signup = () => {
     createUserWithEmailAndPasswordFunc,
     updateProfileFunc,
     sendEmailVerificationFunc,
+    signInWithEmailFunc,
     setLoading,
     signoutUserFunc,
     setUser,
@@ -54,7 +55,7 @@ const Signup = () => {
 
     if (!regExp.test(password)) {
       toast.error(
-        "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
+        "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
       );
       return;
     }
@@ -97,10 +98,10 @@ const Signup = () => {
         console.log(e.code);
         if (e.code === "auth/email-already-in-use") {
           toast.error(
-            "User already exists in the database. Etai bastob haahahahaha"
+            "User already exists in the database."
           );
         } else if (e.code === "auth/weak-password") {
-          toast.error("Bhai tomake at least 6 ta digit er pass dite hobe");
+          toast.error(" at least 6 digit password.");
         } else if (e.code === "auth/invalid-email") {
           toast.error("Invalid email format. Please check your email.");
         } else if (e.code === "auth/user-not-found") {
@@ -120,10 +121,24 @@ const Signup = () => {
         }
       });
   };
-
+  const handleGoogleSignin = () => {
+    signInWithEmailFunc()
+      .then((res) => {
+        setLoading(false);
+        setUser({
+          ...res.user,
+          photoURL: res.user.photoURL || "https://via.placeholder.com/40",
+        });
+        toast.success("Signin successful");
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error(e.message);
+      });
+  };
   return (
     <div className="min-h-[96vh] flex items-center justify-center relative overflow-hidden">
-     
+        <title>Toytopia - Signup</title>
 
       <MyContainer>
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 p-6 lg:p-10 ">
@@ -192,6 +207,24 @@ const Signup = () => {
 
               <button type="submit" className="my-btn">
                 Sign Up
+              </button>
+                 <div className="flex items-center justify-center gap-2 my-2">
+                <div className="h-px w-16 bg-gray-600"></div>
+                <span className="text-sm ">or</span>
+                <div className="h-px w-16 bg-gray-600"></div>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleGoogleSignin}
+                className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/475656/google-color.svg"
+                  alt="google"
+                  className="w-5 h-5"
+                />
+                Continue with Google
               </button>
 
               <div className="text-center mt-3">

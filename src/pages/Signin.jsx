@@ -1,5 +1,5 @@
-import React, { useContext, useRef, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router";
+import React, { useContext, useRef, useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import MyContainer from "../components/MyContainer";
 import { FaEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
@@ -11,44 +11,45 @@ const Signin = () => {
   const {
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
-    signInWithGithubFunc,
     sendPassResetEmailFunc,
     setLoading,
     setUser,
     user,
   } = useContext(AuthContext);
+
   const location = useLocation();
-  const from = location.state || "/";
   const navigate = useNavigate();
-
-  if (user) {
-    navigate("/");
-    return;
-  }
-
-  console.log(location);
+  const from = location.state?.from || "/";
 
   const emailRef = useRef(null);
 
-  // const [email, setEmail] = useState(null);
+  // Safe navigation after login
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
 
   const handleSignin = (e) => {
     e.preventDefault();
     const email = e.target.email?.value;
     const password = e.target.password?.value;
-    console.log({ email, password });
+
     signInWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-        console.log(res);
         setLoading(false);
 
         if (!res.user?.emailVerified) {
           toast.error("Your email is not verified.");
           return;
         }
-        setUser(res.user);
+
+        setUser({
+          ...res.user,
+          photoURL: res.user.photoURL || "https://via.placeholder.com/40",
+        });
+
         toast.success("Signin successful");
-        navigate(from);
       })
       .catch((e) => {
         console.log(e);
@@ -57,13 +58,13 @@ const Signin = () => {
   };
 
   const handleGoogleSignin = () => {
-    console.log("google signin");
     signInWithEmailFunc()
       .then((res) => {
-        console.log(res);
         setLoading(false);
-        setUser(res.user);
-        navigate(from);
+        setUser({
+          ...res.user,
+          photoURL: res.user.photoURL || "https://via.placeholder.com/40",
+        });
         toast.success("Signin successful");
       })
       .catch((e) => {
@@ -72,26 +73,10 @@ const Signin = () => {
       });
   };
 
-//   const handleGithubSignin = () => {
-//     signInWithGithubFunc()
-//       .then((res) => {
-//         console.log(res);
-//         setLoading(false);
-//         setUser(res.user);
-//         navigate(from);
-//         toast.success("Signin successful");
-//       })
-//       .catch((e) => {
-//         console.log(e);
-//         toast.error(e.message);
-//       });
-//   };
-
   const handleForgetPassword = () => {
-    console.log();
     const email = emailRef.current.value;
     sendPassResetEmailFunc(email)
-      .then((res) => {
+      .then(() => {
         setLoading(false);
         toast.success("Check your email to reset password");
       })
@@ -100,12 +85,9 @@ const Signin = () => {
       });
   };
 
-  // console.log();
-
   return (
     <div className="min-h-[calc(100vh-20px)] flex items-center justify-center relative overflow-hidden">
-      
-
+      <title>Toytopia - Signin</title>
       <MyContainer>
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 p-6 lg:p-10 ">
           {/* Left section */}
@@ -132,8 +114,6 @@ const Signin = () => {
                   type="email"
                   name="email"
                   ref={emailRef}
-                  // value={email}
-                  // onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@email.com"
                   className="input input-bordered w-full bg-white/20  placeholder-gray/20 focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
@@ -155,26 +135,45 @@ const Signin = () => {
                 </span>
               </div>
 
-              <button
+              {/* <button
                 className="hover:underline cursor-pointer"
                 onClick={handleForgetPassword}
                 type="button"
               >
                 Forget password?
-              </button>
+              </button> */}
+                {/* <Link
+              to={`/forget-password?email=${emailRef.current?.value || ""}`}
+              className="text-[#1096B5] text-sm hover:underline"
+            >
+              Forgot Password?
+            </Link> */}
+            <button
+  className="hover:underline cursor-pointer"
+  type="button"
+  onClick={() => {
+    const email = emailRef.current?.value || "";
+    if (!email) {
+      toast.info("Enter your email first before resetting password!");
+      return;
+    }
+    navigate("/forget-password", { state: { email } });
+  }}
+>
+  Forget password?
+</button>
+
 
               <button type="submit" className="my-btn">
                 Login
               </button>
 
-              {/* Divider */}
               <div className="flex items-center justify-center gap-2 my-2">
                 <div className="h-px w-16 bg-gray-600"></div>
                 <span className="text-sm ">or</span>
                 <div className="h-px w-16 bg-gray-600"></div>
               </div>
 
-              {/* Google Signin */}
               <button
                 type="button"
                 onClick={handleGoogleSignin}
@@ -187,20 +186,6 @@ const Signin = () => {
                 />
                 Continue with Google
               </button>
-
-              {/* Github Signin */}
-              {/* <button
-                type="button"
-                onClick={handleGithubSignin}
-                className="flex items-center justify-center gap-3 bg-white text-gray-800 px-5 py-2 rounded-lg w-full font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
-              >
-                <img
-                  src="https://img.icons8.com/fluency/48/github.png"
-                  alt="google"
-                  className="w-5 h-5"
-                />
-                Continue with Github
-              </button> */}
 
               <p className="text-center text-sm text-gray/80 mt-3">
                 Don’t have an account?{" "}

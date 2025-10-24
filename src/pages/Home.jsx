@@ -8,6 +8,7 @@ const Home = () => {
         const featuredProducts = data.slice(0, 6)
     return (
         <div className=''>
+          <title>Toytopia - Home</title>
          <Banner></Banner>
         
            <div className='flex  flex-col items-center mt-10'>

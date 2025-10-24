@@ -21,7 +21,6 @@ const Navbar = () => {
   return (
     <div className="bg-[#bdeef8] py-2 px-5 border-b border-b-slate-300 sticky top-0 z-50">
       <MyContainer className="flex items-center justify-between">
-        {/* Logo */}
         <figure>
           <img
             className="w-[150px] h-[50px]"
@@ -30,25 +29,22 @@ const Navbar = () => {
           />
         </figure>
 
-        {/* Navigation Links */}
         <ul className="flex items-center gap-4">
           <li><MyLink to="/">Home</MyLink></li>
           <li><MyLink to="/shop">Shop</MyLink></li>
           <li><MyLink to="/profile">MyProfile</MyLink></li>
         </ul>
 
-        {/* Right Section */}
         {loading ? (
           <ClockLoader color="#e74c3c" size={30} />
         ) : user ? (
           <div className="flex items-center gap-3">
             <img
-              src={user.photoURL || "https://via.placeholder.com/40"}
+              src={user?.photoURL ?? "https://via.placeholder.com/40"}
               alt="User Avatar"
               className="h-[40px] w-[40px] rounded-full border-2 border-[#1096B5]"
-              title={user.displayName} // hover shows name
+              title={user?.displayName ?? "User"}
             />
-           
             <button
               onClick={handleSignout}
               className="bg-[#1096B5] text-white px-3 py-2 rounded-md font-semibold hover:bg-[#0d809a]"

@@ -10,6 +10,7 @@ import ToyDetails from "../pages/ToyDetails";
 import MyProfile from "../pages/MyProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import ForgetPassword from "../pages/ForgetPassword";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -47,7 +48,7 @@ export const router = createBrowserRouter([
         element: (<PrivateRoute><ToyDetails /></PrivateRoute>),
            loader: () => fetch("/Data.json"),
       },
-
+       { path: "/forget-password", element: <ForgetPassword/> },
     ]
   },
 ]);

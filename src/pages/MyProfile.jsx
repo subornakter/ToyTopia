@@ -29,6 +29,7 @@ const MyProfile = () => {
     <MyContainer>
       <div className="max-w-2xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-lg flex items-center space-x-6">
         {/* Profile Image */}
+        <title>Toytopia-MyProfile</title>
         <div className="flex-shrink-0">
           <img
             src={photo || "https://via.placeholder.com/100"}

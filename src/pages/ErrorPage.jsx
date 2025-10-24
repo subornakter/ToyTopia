@@ -10,6 +10,7 @@ const ErrorPage = () => {
       <Navbar />
 
       <div className="flex flex-col justify-center items-center text-center min-h-[80vh]">
+        <title>Error-404</title>
         <img
           src={errorImg}
           alt="404 Error"

@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import icon from '../assets/icon-ratings.png'
+import { toast } from 'react-toastify';
 const ToyDetails = () => {
     const {toyId} = useParams(); 
     const data = useLoaderData();
       const toy = data.find(p => p.toyId === Number(toyId));
       console.log(toy);
       const { toyName, sellerEmail,sellerName,price, rating,description, pictureURL,availableQuantity, subCategory } = toy;
+           useEffect(() => {
+    document.title = `Toy Details | ${toyName}`;
+
+  
+  }, [toyName]);
     return (
          <div className='max-w-screen-9xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12 flex-1'>
       {/*  Info Section  */}
+       
       <div className="flex flex-col md:flex-row justify-center items-start gap-12 w-11/12 md:w-3/4 mt-10">
         <div className="flex-shrink-0 bg-gray-50 p-10 rounded-md shadow-sm">
           <img src={pictureURL} alt={toyName} className="h-[300px] w-full object-contain mx-auto" />
@@ -39,13 +46,13 @@ const ToyDetails = () => {
             <div className="flex-col items-center">
               
               <p className="text-gray-500 text-sm md:text-xl mr-2 md:mr-0">Price</p>
-              <h1 className=" text-xl md:text-2xl font-bold">{price}M</h1>
+              <h1 className=" text-xl md:text-2xl font-bold">${price}</h1>
             </div>
             
             <div className="flex-col items-center">
             
               <p className="text-gray-500 text-sm md:text-xl">Total Quantity</p>
-              <h1 className=" text-xl md:text-2xl font-bold">{availableQuantity}K</h1>
+              <h1 className=" text-xl md:text-2xl font-bold">{availableQuantity}</h1>
             </div>
           </div>
 
@@ -66,6 +73,49 @@ const ToyDetails = () => {
         </div>
       </div>
 
+    {/* Try Now Form */}
+<div className="mt-12 max-w-lg mx-auto bg-gradient-to-r from-blue-50 via-white to-blue-50 p-8 rounded-2xl shadow-xl border border-gray-200">
+  <h2 className="text-3xl font-bold text-center text-[#2bb2d1] mb-6">Try Now Toy</h2>
+  <form
+    onSubmit={(e) => {
+      e.preventDefault();
+      const name = e.target.name.value.trim();
+      const email = e.target.email.value.trim();
+      if (!name || !email) {
+        toast.error("Please fill in all fields");
+        return;
+      }
+      toast.success(`Thank you ${name}! Your request has been received.`);
+      e.target.reset();
+    }}
+    className="space-y-5"
+  >
+    <div>
+      <label className="block text-sm font-medium mb-1 text-gray-700">Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow-sm"
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium mb-1 text-gray-700">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none shadow-sm"
+      />
+    </div>
+    <button
+      type="submit"
+      className="w-full bg-[#1096B5] hover:bg-blue-700 text-white font-semibold py-3 rounded-lg shadow-md transition duration-300"
+    >
+      Try Now
+    </button>
+  </form>
+</div>
 
      
     </div>
