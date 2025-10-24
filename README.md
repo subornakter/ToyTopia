@@ -1,16 +1,37 @@
-# React + Vite
+# Project Name: Toytopia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Demo
+[🌐 Try Toytopia Online](https://your-live-url.com)
 
-Currently, two official plugins are available:
+## Purpose
+Toytopia is an interactive platform for buying educational toys, puzzles, and games. Parents can explore, shop, and learn about a wide variety of intellectual toys that encourage creativity, learning, and fun for children.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **Responsive Banner Section** – Hero banner with call-to-action buttons.  
+- **Swiper Carousel** – Smooth sliding images for featured toys and testimonials.  
+- **Testimonials Section** – Showcase of happy customers’ reviews.  
+- **Extra Info Section** – Highlights services like Customer Care, Free Shipping, and Easy Returns.  
+- **Toy Collections** – Displays all available toys with images and descriptions.  
+- **Mobile Friendly** – Fully responsive design for all devices.  
+- **Interactive Buttons** – Shop now buttons with hover effects and icons.  
+- **Reusable Components** – Clean React component structure for easy scalability.  
+- **Notifications** – Toast notifications using `react-toastify`.  
+- **Loading Indicators** – Spinners for async actions using `react-spinner`.
 
-## React Compiler
+## npm Packages Used
+- `react` – JavaScript library for building user interfaces  
+- `react-dom` – React package for working with the DOM  
+- `swiper` – Modern slider/carousel library for React  
+- `react-icons` – Library for popular icons  
+- `tailwindcss` – Utility-first CSS framework for styling  
+- `daisy-ui` – Tailwind CSS component library for UI elements  
+- `react-spinner` – Loading spinner component for React  
+- `react-toastify` – Toast notifications for React  
+- `autoprefixer` & `postcss` – Required for Tailwind CSS  
+- `react-scripts` – React scripts for running and building the app  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/toytopia.git
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
