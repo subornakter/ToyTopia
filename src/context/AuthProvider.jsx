@@ -15,7 +15,7 @@ import {
 import { auth } from "../firebase/firebase.config";
 
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
+// const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
       displayName,
       photoURL,
     });
+    
   };
 
   const sendEmailVerificationFunc = () => {
@@ -47,10 +48,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const signInWithGithubFunc = () => {
-    setLoading(true);
-    return signInWithPopup(auth, githubProvider);
-  };
+  // const signInWithGithubFunc = () => {
+  //   setLoading(true);
+  //   return signInWithPopup(auth, githubProvider);
+  // };
 
   const signoutUserFunc = () => {
     setLoading(true);
@@ -67,7 +68,7 @@ const AuthProvider = ({ children }) => {
     createUserWithEmailAndPasswordFunc,
     signInWithEmailAndPasswordFunc,
     signInWithEmailFunc,
-    signInWithGithubFunc,
+    // signInWithGithubFunc,
     signoutUserFunc,
     sendPassResetEmailFunc,
     sendEmailVerificationFunc,

@@ -50,6 +50,7 @@ const MyProfile = () => {
 
           {/* Update Form */}
           <form onSubmit={handleUpdate} className="mt-4 space-y-3">
+           <label className="block text-sm mb-1">Name</label>
             <input
               type="text"
               value={name}
@@ -57,6 +58,7 @@ const MyProfile = () => {
               placeholder="Update Name"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             />
+            <label className="block text-sm mb-1">Photo URL</label>
             <input
               type="text"
               value={photo}

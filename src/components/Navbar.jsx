@@ -23,9 +23,9 @@ const Navbar = () => {
   return (
     <div className="bg-[#bdeef8] py-2 px-5 border-b border-b-slate-300 sticky top-0 z-50">
       <MyContainer className="flex items-center justify-between">
-        {/* Left: Hamburger + Logo */}
+    
         <div className="flex items-center gap-3">
-          {/* Hamburger */}
+         
           <button
             className="md:hidden text-2xl text-gray-700"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -47,12 +47,12 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-4">
           <li><MyLink to="/">Home</MyLink></li>
-          <li><MyLink to="/shop">Shop</MyLink></li>
+          <li><MyLink to="/toys">Toys</MyLink></li>
           <li><MyLink to="/store">Store</MyLink></li>
           <li><MyLink to="/profile">MyProfile</MyLink></li>
         </ul>
 
-        {/* Right: Profile / Sign In */}
+      
         {loading ? (
           <ClockLoader color="#e74c3c" size={30} />
         ) : user ? (
@@ -85,7 +85,7 @@ const Navbar = () => {
         <div className="md:hidden bg-[#bdeef8] mt-2 border-t border-t-slate-300 py-4 px-5 space-y-3">
           <ul className="flex flex-col gap-3">
             <li onClick={() => setMenuOpen(false)}><MyLink to="/">Home</MyLink></li>
-            <li onClick={() => setMenuOpen(false)}><MyLink to="/shop">Shop</MyLink></li>
+            <li onClick={() => setMenuOpen(false)}><MyLink to="/toys">Toys</MyLink></li>
             <li onClick={() => setMenuOpen(false)}><MyLink to="/store">Store</MyLink></li>
             <li onClick={() => setMenuOpen(false)}><MyLink to="/profile">MyProfile</MyLink></li>
           </ul>

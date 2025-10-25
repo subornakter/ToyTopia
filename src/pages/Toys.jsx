@@ -1,38 +1,51 @@
-import React,{useState} from 'react';
-import { useLoaderData} from 'react-router';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router';
 import Loader from '../components/Loading';
 import { CiSearch } from "react-icons/ci";
 import ToyCard from '../components/ToyCard';
-const Shop = () => {
-    const data = useLoaderData();
-      const [search, setSearch] = useState('');
+
+const Toys = () => {
+  const data = useLoaderData();
+  const [search, setSearch] = useState('');
   const [searchLoading, setSearchLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [toys, setToys] = useState([]);
 
-
+  useEffect(() => {
+   
+    const timer = setTimeout(() => {
+      setToys(data);
+      setDataLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [data]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
     setSearchLoading(true);
-    setTimeout(() => setSearchLoading(false), 200); 
+    setTimeout(() => setSearchLoading(false), 200);
   };
 
   const term = search.trim().toLowerCase();
-  const searchedApps = term
-    ? data.filter(data => data.toyName.toLowerCase().includes(term))
-    : data;
+  const searchedToys = term
+    ? toys.filter(item => item.toyName.toLowerCase().includes(term))
+    : toys;
 
-    return (
-       <div className='max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-6 md:py-10'>
-        <title>Toytopia - Shop</title>
+  return (
+    <div className='max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-6 md:py-10'>
+      <title>Toytopia - Toys</title>
+
       <div className='flex flex-col justify-center items-center mb-8'>
         <h1 className='text-3xl font-bold'>Our All Toys Collection</h1>
-        <p className='text-gray-500 text-center'>Explore All Toys on the Shop developed by ToyTopia. We code for Millions.</p>
+        <p className='text-gray-500 text-center'>
+          Explore All Toys on the Shop developed by ToyTopia. We code for Millions.
+        </p>
       </div>
 
       <div className='flex justify-between py-5 items-center flex-col md:flex-row gap-4'>
         <h1 className='text-2xl font-semibold'>
           <span className='text-lg text-gray-500'>
-            ({searchedApps.length}) Toys Found.
+            ({searchedToys.length}) Toys Found.
           </span>
         </h1>
 
@@ -48,11 +61,15 @@ const Shop = () => {
         </label>
       </div>
 
-      {searchLoading ? (
+      {dataLoading ? (
+        <div className='flex justify-center items-center min-h-[40vh]'>
+          <Loader />
+        </div>
+      ) : searchLoading ? (
         <Loader />
-      ) : searchedApps.length > 0 ? (
+      ) : searchedToys.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 flex-1 mt-6">
-          {searchedApps.map(toy => (
+          {searchedToys.map(toy => (
             <ToyCard key={toy.toyId} toy={toy} />
           ))}
         </div>
@@ -62,7 +79,8 @@ const Shop = () => {
         </div>
       )}
     </div>
-    );
+  );
 };
 
-export default Shop;
+export default Toys;
+

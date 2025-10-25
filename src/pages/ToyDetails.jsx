@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLoaderData, useParams, useNavigate } from 'react-router';
 import icon from '../assets/icon-ratings.png';
 import { toast } from 'react-toastify';
-
+import { FaCartShopping } from "react-icons/fa6";
 const ToyDetails = () => {
   const { toyId } = useParams();
   const navigate = useNavigate();
@@ -110,7 +110,7 @@ const ToyDetails = () => {
             onClick={handleAddToCart}
             className="btn hover:bg-[#00D390] bg-[#26879b] text-white rounded-md p-3 transition duration-300"
           >
-            Add to Cart
+          <FaCartShopping />  Add to Cart
           </button>
         </div>
       </div>

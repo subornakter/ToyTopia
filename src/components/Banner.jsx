@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import balloon from '../assets/Balloon.png'
 import { FaArrowRight } from "react-icons/fa";
-
+import { Link } from "react-router";
 import ToyCollections from "./ToyCollections.jsx";
 
 const Banner = () => {
@@ -24,12 +24,12 @@ const Banner = () => {
               Play, learn, & grow!
             </h1>
             <p className="mt-2 text-gray-500 text-sm md:text-base">
-              Buy all kinds of intellectual games, toys, puzzles in our store and <br className="hidden md:block" />
+              Buy all kinds of intellectual games, toys, puzzles in our online store and <br className="hidden md:block" />
               give your child the pleasure of love & entertainment.
             </p>
-            <button className="mt-5 font-semibold flex gap-1 items-center bg-yellow-300 rounded-2xl p-2 mx-auto md:mx-0">
+         <Link to="/toys">   <button className="mt-5 font-semibold flex gap-1 items-center bg-yellow-300 rounded-2xl p-2 mx-auto md:mx-0">
               Shop Now <FaArrowRight />
-            </button>
+            </button></Link>
           </div>
           <div>
             <img

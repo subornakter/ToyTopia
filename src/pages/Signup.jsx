@@ -1,18 +1,9 @@
 import { Link, useNavigate } from "react-router";
-
 import { FaEye } from "react-icons/fa";
-
 import { IoEyeOff } from "react-icons/io5";
-
 import MyContainer from "../components/MyContainer";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
-import { toast } from "react-toastify";
 import { useContext, useState } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthContext";
 
 const Signup = () => {
@@ -20,12 +11,12 @@ const Signup = () => {
   const {
     createUserWithEmailAndPasswordFunc,
     updateProfileFunc,
-    sendEmailVerificationFunc,
-    signInWithEmailFunc,
     setLoading,
-    signoutUserFunc,
     setUser,
+    signoutUserFunc,
+    signInWithEmailFunc,
   } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
@@ -42,50 +33,29 @@ const Signup = () => {
       password,
     });
 
-    // console.log(password.length);
-    // if (password.length < 6) {
-    //   toast.error("Password should be at least 6 digit");
-    //   return;
-    // }
-
-    const regExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^()\-_=+])[A-Za-z\d@$!%*?&#^()\-_=+]{8,}$/;
-
-    console.log(regExp.test(password));
-
+    // Password validation: at least 6 chars, one uppercase, one lowercase
+    const regExp = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!regExp.test(password)) {
       toast.error(
-        "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character"
+        "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter"
       );
       return;
     }
 
-    
+    // Signup
     createUserWithEmailAndPasswordFunc(email, password)
       .then((res) => {
-     
         updateProfileFunc(displayName, photoURL)
           .then(() => {
             console.log(res);
-            // 3rd step: Email verification
-            sendEmailVerificationFunc()
-              .then((res) => {
-                console.log(res);
-                setLoading(false);
+            setLoading(false);
 
-                // Signout user
-                signoutUserFunc().then(() => {
-                  toast.success(
-                    "Signup successful. Check your email to validate your account. "
-                  );
-                  setUser(null);
-                  navigate("/signin");
-                });
-              })
-              .catch((e) => {
-                console.log(e);
-                toast.error(e.message);
-              });
+            
+
+            toast.success("Signup successful! Please sign in now.");
+            setUser(null); 
+            signoutUserFunc(); 
+            navigate("/signin"); 
           })
           .catch((e) => {
             console.log(e);
@@ -96,11 +66,9 @@ const Signup = () => {
         console.log(e);
         console.log(e.code);
         if (e.code === "auth/email-already-in-use") {
-          toast.error(
-            "User already exists in the database."
-          );
+          toast.error("User already exists in the database.");
         } else if (e.code === "auth/weak-password") {
-          toast.error(" at least 6 digit password.");
+          toast.error("Password must be at least 6 characters long.");
         } else if (e.code === "auth/invalid-email") {
           toast.error("Invalid email format. Please check your email.");
         } else if (e.code === "auth/user-not-found") {
@@ -120,6 +88,7 @@ const Signup = () => {
         }
       });
   };
+
   const handleGoogleSignin = () => {
     signInWithEmailFunc()
       .then((res) => {
@@ -135,9 +104,10 @@ const Signup = () => {
         toast.error(e.message);
       });
   };
+
   return (
     <div className="min-h-[96vh] flex items-center justify-center relative overflow-hidden">
-        <title>Toytopia - Signup</title>
+      <title>Toytopia - Signup</title>
 
       <MyContainer>
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10 p-6 lg:p-10 ">
@@ -166,6 +136,7 @@ const Signup = () => {
                   className="input input-bordered w-full bg-white/20 placeholder-gray/60 focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
+
               <div>
                 <label className="block text-sm font-medium mb-1">Photo</label>
                 <input
@@ -207,7 +178,8 @@ const Signup = () => {
               <button type="submit" className="my-btn">
                 Sign Up
               </button>
-                 <div className="flex items-center justify-center gap-2 my-2">
+
+              <div className="flex items-center justify-center gap-2 my-2">
                 <div className="h-px w-16 bg-gray-600"></div>
                 <span className="text-sm ">or</span>
                 <div className="h-px w-16 bg-gray-600"></div>
