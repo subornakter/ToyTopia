@@ -15,7 +15,9 @@ const Home = () => {
   useEffect(() => {
     // Simulate slow JSON data loading
     setTimeout(() => {
-      setFeaturedProducts(data.slice(0, 6));
+      // Sort toys by rating (descending order) and take top 6
+      const sortedData = [...data].sort((a, b) => b.rating - a.rating);
+      setFeaturedProducts(sortedData.slice(0, 6));
       setLoading(false);
     }, 1000);
   }, [data]);
@@ -63,3 +65,4 @@ const Home = () => {
 };
 
 export default Home;
+
