@@ -1,10 +1,10 @@
 # Project Name: Toytopia
 
 ## Live Demo
-[🌐 Try Toytopia Online](https://your-live-url.com)
+[🌐 Try Toytopia Online](https://preeminent-palmier-c3d02d.netlify.app/)
 
 ## Purpose
-Toytopia is an interactive platform for buying educational toys, puzzles, and games. Parents can explore, shop, and learn about a wide variety of intellectual toys that encourage creativity, learning, and fun for children.
+Toytopia is an interactive online platform for buying educational toys, puzzles, and games. Parents can explore, shop, and learn about a wide variety of intellectual toys that encourage creativity, learning, and fun for children.
 
 ## Key Features
 - **Responsive Banner Section** – Hero banner with call-to-action buttons.  
