@@ -34,13 +34,14 @@ const Navbar = () => {
           </button>
 
           {/* Logo */}
-          <figure>
+          {/* <figure>
             <img
               className="w-[150px] h-[50px]"
               src="https://i.ibb.co/Hfk12RhR/Toytopia.webp"
               alt="logo"
             />
-          </figure>
+          </figure> */}
+          <h1 className="font-bold text-2xl md:text-4xl text-[#1096B5]">ToyTopia</h1>
         </div>
 
         {/* Desktop Menu */}

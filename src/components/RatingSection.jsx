@@ -45,7 +45,7 @@ const RatingSection = () => {
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
         Hear from Other Happy Parents
       </h2>
-      <p className="text-gray-500 mb-8 md:mb-10 text-sm sm:text-base">Customer testimonials</p>
+      <p className="text-gray-500 mb-8 md:mb-10 text-sm sm:text-base">Customer Reviews</p>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
