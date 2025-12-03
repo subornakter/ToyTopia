@@ -10,6 +10,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
 import ForgetPassword from "../pages/ForgetPassword";
 import Store from "../pages/Store";
+import Contact from "../pages/Contact";
+import AboutUS from "../pages/AboutUS";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,16 @@ export const router = createBrowserRouter([
             path:"/toys",
             element:<Toys/>,
                loader: () => fetch("/Data.json"),
+        },
+        {
+            path:"/contact",
+            element: <Contact/>,
+          
+        },
+        {
+            path:"/about",
+            element: <AboutUS/>,
+          
         },
         {
             path:"/profile",

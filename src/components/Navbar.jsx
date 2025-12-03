@@ -49,6 +49,8 @@ const Navbar = () => {
           <li><MyLink to="/">Home</MyLink></li>
           <li><MyLink to="/toys">Toys</MyLink></li>
           <li><MyLink to="/store">Store</MyLink></li>
+            <li><MyLink to="/contact">Contact</MyLink></li>
+            <li><MyLink to="/about">AboutUs</MyLink></li>
           <li><MyLink to="/profile">MyProfile</MyLink></li>
         </ul>
 
@@ -87,6 +89,8 @@ const Navbar = () => {
             <li onClick={() => setMenuOpen(false)}><MyLink to="/">Home</MyLink></li>
             <li onClick={() => setMenuOpen(false)}><MyLink to="/toys">Toys</MyLink></li>
             <li onClick={() => setMenuOpen(false)}><MyLink to="/store">Store</MyLink></li>
+            <li onClick={() => setMenuOpen(false)}><MyLink to="/contact">Contact</MyLink></li>
+                        <li onClick={() => setMenuOpen(false)}><MyLink to="/about">AboutUs</MyLink></li>
             <li onClick={() => setMenuOpen(false)}><MyLink to="/profile">MyProfile</MyLink></li>
           </ul>
         </div>

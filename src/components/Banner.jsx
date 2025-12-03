@@ -56,7 +56,7 @@ const Banner = () => {
             <img
               src="https://i.postimg.cc/L5mp4j2Q/pic5.jpg"
               alt="Toy 1"
-              className="w-full h-48 md:h-150 object-cover rounded-2xl"
+              className="w-full h-45 md:h-120 object-cover rounded-2xl"
             />
           </SwiperSlide>
 
@@ -64,7 +64,7 @@ const Banner = () => {
             <img
               src="https://i.postimg.cc/t4BHqsMt/pic3.jpg"
               alt="Toy 2"
-              className="w-full h-48 md:h-150 object-cover rounded-2xl"
+              className="w-full h-45 md:h-120 object-cover rounded-2xl"
             />
           </SwiperSlide>
 
@@ -72,7 +72,7 @@ const Banner = () => {
             <img
               src="https://i.postimg.cc/DwytM2w5/pic4.png"
               alt="Toy 3"
-              className="w-full h-48 md:h-150 object-cover rounded-2xl"
+              className="w-full h-45 md:h-120 object-cover rounded-2xl"
             />
           </SwiperSlide>
         </Swiper>
