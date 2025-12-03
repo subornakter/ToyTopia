@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import ExtraSection from '../components/ExtraSection';
 import RatingSection from '../components/RatingSection';
 import Loader from '../components/Loading';
+import StateSection from '../components/StateSection';
 
 const Home = () => {
   const data = useLoaderData();
@@ -60,6 +61,7 @@ const Home = () => {
 
       <ExtraSection />
       <RatingSection />
+      <StateSection />
     </div>
   );
 };

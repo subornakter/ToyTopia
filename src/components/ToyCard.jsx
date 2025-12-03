@@ -11,7 +11,7 @@ const ToyCard = ({toy}) => {
             <h1 className='text-xl font-bold'>{toyName}</h1>
                <FaRegHeart size={20} className="text-pink-500 mr-2" />
             </div>          
-  <figure className='h-65 overflow-hidden'>
+  <figure className='h-45 overflow-hidden'>
     <img className='w-full object-cover'
       src={pictureURL}
       alt="Shoes" />
